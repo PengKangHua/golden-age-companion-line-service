@@ -1,0 +1,16 @@
+.data/
+.env
+.env.local
+.env.*.local
+dist/
+coverage/
+node_modules/
+*.log
+*.pid
+
+# Local research and planning notes that are not part of the public package.
+ai-companion-competitor-review.md
+golden-age-consumer-insights-report.md
+prd-*.md
+docs/qa/
+docs/superpowers/
