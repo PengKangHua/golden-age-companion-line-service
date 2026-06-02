@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>陪伴型晚輩 AI 夥伴 Simulator</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="phone">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">LINE Service V0</p>
+            <h1>陪伴型晚輩 AI 夥伴</h1>
+          </div>
+          <span class="status">本地模擬</span>
+        </header>
+
+        <section id="messages" class="messages" aria-live="polite"></section>
+
+        <section class="quick-actions" aria-label="快速操作">
+          <button type="button" data-send="你好，我想聊聊">跟我聊聊</button>
+          <button type="button" data-prefill="幫我看一下 ">幫我看一下</button>
+          <button type="button" id="imageButton">模擬截圖</button>
+          <button type="button" data-send="太多了，少一點">少一點</button>
+          <button type="button" data-send="你可以每天跟我說話">多一點</button>
+          <button type="button" id="pushButton">模擬問候</button>
+        </section>
+
+        <form id="messageForm" class="composer">
+          <textarea id="messageInput" rows="2" placeholder="直接輸入一句話，或貼上可疑訊息"></textarea>
+          <button type="submit">送出</button>
+        </form>
+      </section>
+
+      <aside class="side-panel">
+        <section>
+          <h2>假門付費測試</h2>
+          <p>這裡只記錄意願，不會扣款。</p>
+          <div class="plan-list">
+            <button type="button" data-plan-view="companion_plus">
+              <strong>陪伴加一點</strong>
+              <span>NT$99/月</span>
+            </button>
+            <button type="button" data-plan-view="daily_companion">
+              <strong>每天陪伴</strong>
+              <span>NT$149/月</span>
+            </button>
+            <button type="button" data-plan-view="deep_check">
+              <strong>幫我仔細看</strong>
+              <span>NT$49/次</span>
+            </button>
+          </div>
+          <div class="tool-list payment-actions">
+            <button type="button" id="applyPlanButton">申請試用目前方案</button>
+            <button type="button" data-abandon="not_now">先不用</button>
+            <button type="button" data-abandon="too_expensive">覺得太貴</button>
+            <button type="button" data-abandon="need_to_think">想再想一下</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>V0.2 驗證</h2>
+          <p>用 demo-user 模擬兩天後的主動問候排程。</p>
+          <div class="tool-list">
+            <button type="button" id="dueButton">查看到點用戶</button>
+            <button type="button" id="runSchedulerButton">執行排程</button>
+            <button type="button" id="eventsButton">查看事件</button>
+            <button type="button" id="metricsButton">查看指標</button>
+          </div>
+          <pre id="debugPanel" class="debug-panel">尚未載入事件。</pre>
+        </section>
+
+        <section>
+          <h2>測試提示</h2>
+          <ul>
+            <li>輸入「幫我看一下 這個投資叫我轉帳」測試反詐。</li>
+            <li>輸入「太多了，少一點」測試降頻。</li>
+            <li>點「模擬問候」測試主動陪伴。</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
